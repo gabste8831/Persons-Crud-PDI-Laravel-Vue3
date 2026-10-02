@@ -5,8 +5,8 @@ Laravel 13 · Vue 3 · Tailwind 4 · Vite · SQLite
 
 ## Demo online
 
-**URL:** https://crud-pessoas-30de.onrender.com
-**Login:** `admin@exemplo.com` / `senha123`
+- **URL:** https://crud-pessoas-30de.onrender.com
+- **Login:** `admin@exemplo.com` / `senha123`
 
 Hospedado no plano gratuito do Render: o primeiro acesso depois de um tempo
 parado pode levar até ~1 minuto (o servidor "acorda"). O banco é recriado a
@@ -53,7 +53,7 @@ php artisan serve  # http://127.0.0.1:8000
 
 Ou, para rodar sem o Vite em modo dev, compile os assets uma vez com `npm run build`.
 
-**Login:** `admin@exemplo.com` / `senha123` (criado pelo seeder)
+- **Login:** `admin@exemplo.com` / `senha123` (criado pelo seeder)
 
 ## Testes
 
