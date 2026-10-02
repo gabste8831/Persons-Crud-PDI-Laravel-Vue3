@@ -49,6 +49,7 @@ async function entrar() {
                         type="email"
                         autocomplete="username"
                         class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 outline-none focus:border-gray-900"
+                        placeholder="admin@exemplo.com"
                         required
                     >
                     <p v-if="erros.email" class="mt-1 text-sm text-red-600">{{ erros.email[0] }}</p>
@@ -62,6 +63,7 @@ async function entrar() {
                         type="password"
                         autocomplete="current-password"
                         class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 outline-none focus:border-gray-900"
+                        placeholder="senha123"
                         required
                     >
                     <p v-if="erros.password" class="mt-1 text-sm text-red-600">{{ erros.password[0] }}</p>
