@@ -5,7 +5,7 @@ Laravel 13 · Vue 3 · Tailwind 4 · Vite · SQLite
 
 ## Demo online
 
-**URL:** _(a definir após o primeiro deploy)_
+**URL:** https://crud-pessoas-30de.onrender.com
 **Login:** `admin@exemplo.com` / `senha123`
 
 Hospedado no plano gratuito do Render: o primeiro acesso depois de um tempo
