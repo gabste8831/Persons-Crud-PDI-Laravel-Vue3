@@ -175,6 +175,20 @@ class PessoaTest extends TestCase
             ->assertJsonValidationErrors('cpf');
     }
 
+    public function test_exibe_pessoa(): void
+    {
+        $pessoa = Pessoa::create([
+            'nome' => 'Maria', 'cpf' => '52998224725', 'tipo' => 'fisica',
+            'telefone' => '11988887777', 'email' => 'maria@exemplo.com',
+        ]);
+
+        $this->actingAs($this->usuario())
+            ->getJson("/pessoas/{$pessoa->id}")
+            ->assertOk()
+            ->assertJsonPath('nome', 'Maria')
+            ->assertJsonPath('cpf', '52998224725');
+    }
+
     public function test_exclui_pessoa(): void
     {
         $pessoa = Pessoa::create([

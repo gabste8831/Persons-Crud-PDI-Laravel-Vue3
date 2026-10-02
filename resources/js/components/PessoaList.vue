@@ -3,7 +3,7 @@ import { onMounted, ref, watch } from 'vue';
 import { api } from '../api';
 import { formatarDocumento, formatarTelefone } from '../formatters';
 
-const emit = defineEmits(['novo', 'editar']);
+const emit = defineEmits(['novo', 'ver', 'editar']);
 
 const pagina = ref({ data: [], current_page: 1, last_page: 1, total: 0 });
 const busca = ref('');
@@ -60,7 +60,7 @@ defineExpose({ carregar });
 </script>
 
 <template>
-    <div class="rounded-xl border border-gray-200 bg-white text-gray-900 shadow-s">
+    <div class="rounded-xl border border-gray-200 bg-white text-gray-900 shadow-sm">
         <div class="flex flex-wrap items-center gap-3 border-b border-gray-200 p-4">
             <input
                 v-model="busca"
@@ -105,7 +105,11 @@ defineExpose({ carregar });
                         <td colspan="6" class="px-4 py-8 text-center text-gray-500">Nenhuma pessoa encontrada.</td>
                     </tr>
                     <tr v-for="pessoa in pagina.data" v-else :key="pessoa.id" class="hover:bg-gray-50">
-                        <td class="px-4 py-3 font-medium">{{ pessoa.nome }}</td>
+                        <td class="px-4 py-3 font-medium">
+                            <button class="text-left hover:underline" @click="emit('ver', pessoa)">
+                                {{ pessoa.nome }}
+                            </button>
+                        </td>
                         <td class="px-4 py-3">
                             <span
                                 class="rounded-full px-2 py-0.5 text-xs"
@@ -122,6 +126,12 @@ defineExpose({ carregar });
                         <td class="px-4 py-3 text-right whitespace-nowrap">
                             <button
                                 class="rounded-md border border-gray-300 px-3 py-1 transition hover:bg-gray-100"
+                                @click="emit('ver', pessoa)"
+                            >
+                                Ver
+                            </button>
+                            <button
+                                class="ml-2 rounded-md border border-gray-300 px-3 py-1 transition hover:bg-gray-100"
                                 @click="emit('editar', pessoa)"
                             >
                                 Alterar

@@ -64,7 +64,7 @@ async function salvar() {
 </script>
 
 <template>
-    <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+    <div class="rounded-xl border border-gray-200 bg-white p-6 text-gray-900 shadow-sm">
         <h2 class="text-lg font-semibold">
             {{ pessoa ? 'Alterar pessoa' : 'Cadastrar pessoa' }}
         </h2>

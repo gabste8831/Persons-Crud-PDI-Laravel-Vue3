@@ -36,7 +36,7 @@ async function entrar() {
 
 <template>
     <div class="flex min-h-screen items-center justify-center px-4">
-        <div class="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+        <div class="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-8 text-gray-900 shadow-sm">
             <h1 class="text-xl font-semibold">Entrar</h1>
             <p class="mt-1 text-sm text-gray-500">Acesse para gerenciar as pessoas.</p>
 

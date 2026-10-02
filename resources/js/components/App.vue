@@ -2,13 +2,15 @@
 import { onMounted, ref } from 'vue';
 import { api } from '../api';
 import Login from './Login.vue';
+import PessoaDetalhe from './PessoaDetalhe.vue';
 import PessoaForm from './PessoaForm.vue';
 import PessoaList from './PessoaList.vue';
 
 const user = ref(null);
 const carregandoSessao = ref(true);
-const tela = ref('lista'); // 'lista' | 'form'
+const tela = ref('lista'); // 'lista' | 'detalhe' | 'form'
 const pessoaEmEdicao = ref(null);
+const pessoaEmVisualizacao = ref(null);
 const aviso = ref('');
 const lista = ref(null);
 
@@ -42,6 +44,11 @@ function abrirNovo() {
     tela.value = 'form';
 }
 
+function abrirDetalhe(pessoa) {
+    pessoaEmVisualizacao.value = pessoa;
+    tela.value = 'detalhe';
+}
+
 function abrirEdicao(pessoa) {
     pessoaEmEdicao.value = pessoa;
     tela.value = 'form';
@@ -57,7 +64,7 @@ function aoSalvar() {
 </script>
 
 <template>
-    <div v-if="carregandoSessao" class="flex min-h-screen items-center justify-center text-red-500">
+    <div v-if="carregandoSessao" class="flex min-h-screen items-center justify-center text-gray-400">
         Carregando…
     </div>
 
@@ -67,10 +74,10 @@ function aoSalvar() {
         <header class="mb-6 flex flex-wrap items-center justify-between gap-3">
             <div>
                 <h1 class="text-2xl font-semibold">Pessoas</h1>
-                <p class="text-sm text-gray-500">Conectado como {{ user.name }}</p>
+                <p class="text-sm text-gray-400">Conectado como {{ user.name }}</p>
             </div>
             <button
-                class="rounded-md border border-gray-300 px-4 py-2 transition hover:bg-gray-100"
+                class="rounded-md border border-gray-600 px-4 py-2 transition hover:bg-white/10"
                 @click="sair"
             >
                 Sair
@@ -85,7 +92,15 @@ function aoSalvar() {
             v-if="tela === 'lista'"
             ref="lista"
             @novo="abrirNovo"
+            @ver="abrirDetalhe"
             @editar="abrirEdicao"
+        />
+
+        <PessoaDetalhe
+            v-else-if="tela === 'detalhe'"
+            :pessoa="pessoaEmVisualizacao"
+            @editar="abrirEdicao"
+            @voltar="tela = 'lista'"
         />
 
         <PessoaForm
