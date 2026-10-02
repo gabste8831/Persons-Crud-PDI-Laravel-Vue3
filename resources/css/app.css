@@ -6,4 +6,45 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /*
+     * Paleta do sistema. Cada --color-<nome> vira utilitários do Tailwind
+     * (bg-<nome>, text-<nome>, border-<nome>...). Para mudar uma cor do app
+     * inteiro, altere só aqui.
+     */
+
+    /* Fundo da página (escuro) e o que fica direto sobre ele */
+    --color-pagina: #232323;
+    --color-pagina-texto: #e5e7eb;
+    --color-pagina-suave: #9ca3af;
+    --color-pagina-borda: #4b5563;
+    --color-pagina-hover: rgb(255 255 255 / 0.1);
+
+    /* Cartões (login, listagem, formulário, detalhe) */
+    --color-cartao: #ffffff;
+    --color-cartao-texto: #111827;
+    --color-suave: #6b7280;
+    --color-borda: #e5e7eb;
+    --color-campo: #d1d5db;
+    --color-linha: #f3f4f6;
+    --color-superficie: #f9fafb;
+    --color-superficie-hover: #f3f4f6;
+
+    /* Ação principal (botões escuros, foco dos campos) */
+    --color-destaque: #111827;
+    --color-destaque-hover: #374151;
+    --color-destaque-texto: #ffffff;
+
+    /* Estados */
+    --color-perigo: #dc2626;
+    --color-perigo-fundo: #fef2f2;
+    --color-perigo-borda: #fecaca;
+    --color-sucesso: #065f46;
+    --color-sucesso-fundo: #ecfdf5;
+
+    /* Etiquetas de tipo de pessoa */
+    --color-fisica: #047857;
+    --color-fisica-fundo: #ecfdf5;
+    --color-juridica: #4338ca;
+    --color-juridica-fundo: #eef2ff;
 }

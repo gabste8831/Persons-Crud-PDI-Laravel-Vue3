@@ -64,7 +64,7 @@ function aoSalvar() {
 </script>
 
 <template>
-    <div v-if="carregandoSessao" class="flex min-h-screen items-center justify-center text-gray-400">
+    <div v-if="carregandoSessao" class="flex min-h-screen items-center justify-center text-pagina-suave">
         Carregando…
     </div>
 
@@ -74,17 +74,17 @@ function aoSalvar() {
         <header class="mb-6 flex flex-wrap items-center justify-between gap-3">
             <div>
                 <h1 class="text-2xl font-semibold">Pessoas</h1>
-                <p class="text-sm text-gray-400">Conectado como {{ user.name }}</p>
+                <p class="text-sm text-pagina-suave">Conectado como {{ user.name }}</p>
             </div>
             <button
-                class="rounded-md border border-gray-600 px-4 py-2 transition hover:bg-white/10"
+                class="rounded-md border border-pagina-borda px-4 py-2 transition hover:bg-pagina-hover"
                 @click="sair"
             >
                 Sair
             </button>
         </header>
 
-        <p v-if="aviso" class="mb-4 rounded-md bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+        <p v-if="aviso" class="mb-4 rounded-md bg-sucesso-fundo px-4 py-3 text-sm text-sucesso">
             {{ aviso }}
         </p>
 

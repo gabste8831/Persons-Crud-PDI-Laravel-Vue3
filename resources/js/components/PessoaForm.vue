@@ -64,7 +64,7 @@ async function salvar() {
 </script>
 
 <template>
-    <div class="rounded-xl border border-gray-200 bg-white p-6 text-gray-900 shadow-sm">
+    <div class="rounded-xl border border-borda bg-cartao p-6 text-cartao-texto shadow-sm">
         <h2 class="text-lg font-semibold">
             {{ pessoa ? 'Alterar pessoa' : 'Cadastrar pessoa' }}
         </h2>
@@ -75,9 +75,9 @@ async function salvar() {
                 <input
                     id="nome"
                     v-model="form.nome"
-                    class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 outline-none focus:border-gray-900"
+                    class="mt-1 w-full rounded-md border border-campo px-3 py-2 outline-none focus:border-destaque"
                 >
-                <p v-if="erros.nome" class="mt-1 text-sm text-red-600">{{ erros.nome[0] }}</p>
+                <p v-if="erros.nome" class="mt-1 text-sm text-perigo">{{ erros.nome[0] }}</p>
             </div>
 
             <div>
@@ -85,12 +85,12 @@ async function salvar() {
                 <select
                     id="tipo"
                     v-model="form.tipo"
-                    class="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 outline-none focus:border-gray-900"
+                    class="mt-1 w-full rounded-md border border-campo bg-cartao px-3 py-2 outline-none focus:border-destaque"
                 >
                     <option value="fisica">Pessoa física</option>
                     <option value="juridica">Pessoa jurídica</option>
                 </select>
-                <p v-if="erros.tipo" class="mt-1 text-sm text-red-600">{{ erros.tipo[0] }}</p>
+                <p v-if="erros.tipo" class="mt-1 text-sm text-perigo">{{ erros.tipo[0] }}</p>
             </div>
 
             <div>
@@ -102,9 +102,9 @@ async function salvar() {
                     v-model="form.cpf"
                     inputmode="numeric"
                     :placeholder="form.tipo === 'juridica' ? '00.000.000/0000-00' : '000.000.000-00'"
-                    class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 outline-none focus:border-gray-900"
+                    class="mt-1 w-full rounded-md border border-campo px-3 py-2 outline-none focus:border-destaque"
                 >
-                <p v-if="erros.cpf" class="mt-1 text-sm text-red-600">{{ erros.cpf[0] }}</p>
+                <p v-if="erros.cpf" class="mt-1 text-sm text-perigo">{{ erros.cpf[0] }}</p>
             </div>
 
             <div>
@@ -114,9 +114,9 @@ async function salvar() {
                     v-model="form.telefone"
                     inputmode="numeric"
                     placeholder="(00) 00000-0000"
-                    class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 outline-none focus:border-gray-900"
+                    class="mt-1 w-full rounded-md border border-campo px-3 py-2 outline-none focus:border-destaque"
                 >
-                <p v-if="erros.telefone" class="mt-1 text-sm text-red-600">{{ erros.telefone[0] }}</p>
+                <p v-if="erros.telefone" class="mt-1 text-sm text-perigo">{{ erros.telefone[0] }}</p>
             </div>
 
             <div>
@@ -125,24 +125,24 @@ async function salvar() {
                     id="email-pessoa"
                     v-model="form.email"
                     type="email"
-                    class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 outline-none focus:border-gray-900"
+                    class="mt-1 w-full rounded-md border border-campo px-3 py-2 outline-none focus:border-destaque"
                 >
-                <p v-if="erros.email" class="mt-1 text-sm text-red-600">{{ erros.email[0] }}</p>
+                <p v-if="erros.email" class="mt-1 text-sm text-perigo">{{ erros.email[0] }}</p>
             </div>
 
-            <p v-if="erroGeral" class="text-sm text-red-600 sm:col-span-2">{{ erroGeral }}</p>
+            <p v-if="erroGeral" class="text-sm text-perigo sm:col-span-2">{{ erroGeral }}</p>
 
             <div class="flex gap-3 sm:col-span-2">
                 <button
                     type="submit"
                     :disabled="salvando"
-                    class="rounded-md bg-gray-900 px-4 py-2 text-white transition hover:bg-gray-700 disabled:opacity-50"
+                    class="rounded-md bg-destaque px-4 py-2 text-destaque-texto transition hover:bg-destaque-hover disabled:opacity-50"
                 >
                     {{ salvando ? 'Salvando…' : 'Salvar' }}
                 </button>
                 <button
                     type="button"
-                    class="rounded-md border border-gray-300 px-4 py-2 transition hover:bg-gray-100"
+                    class="rounded-md border border-campo px-4 py-2 transition hover:bg-superficie-hover"
                     @click="emit('cancelar')"
                 >
                     Cancelar
