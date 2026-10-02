@@ -1,0 +1,30 @@
+# Blueprint do Render: no painel, "New > Blueprint" e escolha este repositório.
+services:
+  - type: web
+    name: crud-pessoas
+    runtime: docker
+    plan: free
+    branch: master
+    autoDeploy: true
+    healthCheckPath: /up
+    envVars:
+      - key: APP_NAME
+        value: Cadastro de Pessoas
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: LOG_LEVEL
+        value: info
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: SESSION_DRIVER
+        value: database
+      - key: SESSION_SECURE_COOKIE
+        value: "true"
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: sync

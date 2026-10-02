@@ -3,6 +3,18 @@
 CRUD de pessoas (física/jurídica) com autenticação por sessão.
 Laravel 13 · Vue 3 · Tailwind 4 · Vite · SQLite
 
+## Demo online
+
+**URL:** _(a definir após o primeiro deploy)_
+**Login:** `admin@exemplo.com` / `senha123`
+
+Hospedado no plano gratuito do Render: o primeiro acesso depois de um tempo
+parado pode levar até ~1 minuto (o servidor "acorda"). O banco é recriado a
+cada reinício, então os dados sempre voltam ao estado de exemplo.
+
+Deploy: `Dockerfile` + `render.yaml` (Blueprint). Cada push no `master` publica
+uma nova versão.
+
 ## Requisitos
 
 - PHP 8.3+ (com extensão `pdo_sqlite`)

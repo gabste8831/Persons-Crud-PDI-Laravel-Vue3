@@ -12,7 +12,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Em produção o app roda atrás do proxy do Render, que termina o HTTPS.
+        // Confiar nos headers X-Forwarded-* faz o Laravel gerar URLs https://
+        // (sem isso o navegador bloquearia o CSS/JS por "mixed content").
+        $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         // Nosso front é Vue e conversa por fetch(): sempre que o cliente pedir
