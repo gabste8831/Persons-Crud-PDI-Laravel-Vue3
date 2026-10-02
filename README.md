@@ -91,3 +91,16 @@ As views Blade compiladas guardam caminhos absolutos. Rode:
 ```bash
 php artisan optimize:clear
 ```
+
+## Telas do Sistema
+
+- Tela de Login
+<img width="1448" height="621" alt="image" src="https://github.com/user-attachments/assets/12e26af0-b4ef-4e16-91af-d6c82ccfe76d" />
+
+- Tela de Listagem de Pessoas Cadastradas + Filtros
+<img width="1459" height="478" alt="image" src="https://github.com/user-attachments/assets/9f816c62-4286-40f5-9b4e-01f9e2115666" />
+
+- Seção de Cadastro de uma Nova Pessoa,
+<img width="1455" height="535" alt="image" src="https://github.com/user-attachments/assets/e36d5a8a-b2d1-47c5-bb7a-3d980d1480aa" />
+
+
